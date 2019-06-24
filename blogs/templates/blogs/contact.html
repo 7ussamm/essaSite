@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %} | Contact {% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h1>Contact Us</h1>
+        <form action="" method="post">
+
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+
+        <div class="row">
+            <div class="col text-center">
+                <a href="https://www.facebook.com/" target="_blank" style="text-decoration: none;">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle-notch fa-spin fa-stack-2x"></i>
+                              <i class="fab fa-facebook-square fa-1x"></i>
+                    </span>
+                </a>
+                <div style="border-left:1px solid #b1aaaa;height: 45px; display: inline-block; margin:0 0 -20px 0;"></div>
+                <a href="https://twitter.com/" target="_blank" style="text-decoration: none;">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle-notch fa-spin fa-stack-2x"></i>
+                              <i class="fab fa-twitter-square fa-1x"></i>
+                    </span>
+                </a>
+                <div style="border-left:1px solid #b1aaaa;height: 45px; display: inline-block; margin:0 0 -20px 0;"></div>
+                <a href="https://aboutme.google.com/u/0/" target="_blank" style="text-decoration: none;">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle-notch fa-spin fa-stack-2x"></i>
+                              <i class="fab fa-google-plus-square fa-1x"></i>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} | Home {% endblock %}
+
+{% block content %}
+
+
+    <main role="main">
+        <div class="jumbotron" style="
+        background-color:inherit;
+        background-image:url('{% static 'img/banner.jpg'%}');
+        background-size:     cover;
+        background-repeat:   no-repeat;
+        background-position: center center;
+        color:white;">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>Welcome to PythonWeb</h1>
+                    <i class="fa fa-spinner fa-pulse" style="color:white"></i>
+
+                    <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser’s viewport.</p>
+                    <a class="btn btn-lg btn-primary" href="/docs/4.3/components/navbar/" role="button">View navbar docs &raquo;</a>
+                </div>
+                <div class="col-sm-4 text-center relative img" style="height:200px; border-radius:4%">
+                    <img src="{% static 'img/s_box.jpg'%}" class="img-fluid fa-spin">
+<!--                    to add a video to the page-->
+<!--                    <iframe width="" height="" src="" frameborder="0" allowfullscreen></iframe>-->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="row ">
+        <div class="col-md-6 ">
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7mH-nS65hU8"
+                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="col-md-5 offset-sm-12">
+            <form method="post" action="">
+
+                {% csrf_token %}
+                {{ form|crispy}}
+
+                <input class="btn btn-primary submit" type="submit" value="Submit"><br>
+                <br>
+
+            </form>
+        </div>
+    </div>
+                <br>
+<a href="{% url 'auth_login' %}">Login</a>
+                <br>
+                <br>
+
+
+
+
+{% endblock %}

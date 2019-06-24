@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+{% block title %} | Details {% endblock %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+<h1 class="text-center">Content</h1>
+
+<form method="get" action="" class="form-group text-center">
+        {{filter_form|crispy}}
+        <input type="Submit" value="Filter" class="btn btn-primary mb-2">
+        <a href="{% url 'content'%}">
+            <input type="button" value="Clear Filter" class="btn btn-warning mb-2">
+        </a>
+</form>
+
+<table class="table">
+<!--    make a form here to filter -->
+    {% for f in form %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{f.name}}</td>
+        <td>{{f.email}}</td>
+        <td> since {{f.timestamp|timesince}} ago! </td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="row justify-content-center">
+    <div class="col-sm-3">
+        <ul class="pagination">
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                2
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock%}

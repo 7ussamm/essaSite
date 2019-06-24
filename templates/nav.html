@@ -1,0 +1,68 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+  <h3>PythonWeb
+    <img src="{% static 'img/logo.png'%}" height="20px" width="20px">
+  </h3>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'content' %}">Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin</a>
+      </li>
+    </ul>
+
+    <form method="post" action="{% url 'auth_login' %}" class="form-inline mt-2 mt-md-0">
+      {% csrf_token %}
+
+      {% if not request.user.is_authenticated and "/accounts/login/" not in request.get_full_path %}
+
+<!--        <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username">-->
+<!--        <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">-->
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+
+      {% endif %}
+
+      {% if "/accounts/register/" not in request.get_full_path and not request.user.is_authenticated %}
+        <div class="col">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="{% url 'registration_register' %}" style="color:white">
+                    Register
+                </a>
+            </li>
+          </ul>
+        </div>
+      {% endif %}
+    </form>
+
+      {% if request.user.is_authenticated %}
+        <span class="user">
+
+                This user is logged in as __ {{ request.user }}
+        </span>
+
+        <a href="{% url 'auth_logout' %}" style="color:white">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+        </a>
+
+      {% endif %}
+
+  </div>
+</nav>

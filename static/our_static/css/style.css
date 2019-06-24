@@ -1,0 +1,41 @@
+nav > h3 {
+    color:white;
+    font-weight:bold;
+    font-style:italic;
+    margin-right: 11%;
+}
+nav > h3:hover{
+    color:blue;
+}
+
+.submit{
+    margin-bottom:10%;
+}
+.or{
+    margin: 5px;
+    background-color: whitesmoke;
+    border-radius: 25% 0 25% 0;
+    font-weight: bold;
+    font-family: initial;
+    padding: 0 4px 0 4px;
+}
+.user{
+    font-family: Goudy Old Style;
+    color: white;
+    margin-right: 10%;
+    margin-left: -10%;
+    font-size: 160%;
+}
+
+.navbar-dark .navbar-toggler:focus, .navbar-dark .navbar-toggler:hover{
+    background-color:#42655d;
+}
+
+.img > img {
+    border-radius:50%;
+    border-style: ridge;
+    border-width: 3px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-color: black;
+}
